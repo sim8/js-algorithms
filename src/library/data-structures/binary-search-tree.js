@@ -6,18 +6,6 @@ class Node {
     this.value = value;
   }
 
-  insert(node) {
-    if (node.value === this.value) {
-      return;
-    }
-    const key = node.value < this.value ? '_left' : '_right';
-    if (this[key]) {
-      this[key].insert(node);
-    } else {
-      this[key] = node;
-    }
-  }
-
   /**
    * Gets the total number of nodes in tree from current node down.
    * @return {[integer]} Total tree size
@@ -39,12 +27,11 @@ export class BinarySearchTree {
   }
 
   insert(value) {
-    const node = new Node(value);
     if (this._root) {
-      this._root.insert(node);
-    } else {
-      this._root = node;
+      return this.find(value, true);
     }
+    this._root = new Node(value);
+    return null;
   }
 
   insertArray(array) {
@@ -55,5 +42,21 @@ export class BinarySearchTree {
 
   getSize() {
     return this._root.getTreeSize();
+  }
+
+  find(value, createIfNotInTree) {
+    let node = this._root;
+    while (node.value !== value) {
+      const key = value < node.value ? '_left' : '_right';
+      if (node[key]) {
+        node = node[key];
+      } else {
+        if (createIfNotInTree) {
+          node[key] = new Node(value);
+        }
+        return null;
+      }
+    }
+    return node;
   }
 }
