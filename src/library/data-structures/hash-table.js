@@ -5,6 +5,10 @@ export class Node {
     this.next = null;
   }
 
+  find(key) {
+    return key === this.key ? this.value : this.next && this.next.find(key) || null;
+  }
+
   append(node) {
     if (this.next) {
       this.next.append(node);
@@ -45,5 +49,41 @@ export class HashTable {
     } else {
       this._table[index] = node;
     }
+  }
+
+  insertArray(array, keyProp, valueProp) {
+    for (const item of array) {
+      this.insert(item[keyProp], item[valueProp]);
+    }
+  }
+
+  find(key) {
+    const index = this.hash(key) % this._tableSize;
+    return this._table[index] ? this._table[index].find(key) : null;
+  }
+
+  empty() {
+    this._table = [];
+  }
+
+  delete(key) {
+    const index = this.hash(key) % this._tableSize;
+    if (this._table[index]) {
+      let current = this._table[index];
+      let previous;
+      while (current) {
+        if (current.key === key) {
+          if (previous) {
+            previous.next = current.next;
+          } else {
+            this._table[index] = current.next;
+          }
+          return true;
+        }
+        previous = current;
+        current = current.next;
+      }
+    }
+    return false;
   }
 }

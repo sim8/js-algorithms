@@ -6,7 +6,7 @@ describe('Hash Table', () => {
   let hashTable;
   let sampleData;
   beforeEach(() => {
-    hashTable = new HashTable(3);
+    hashTable = new HashTable(40);
     sampleData = [
       {
         'title': 'A Title',
@@ -31,21 +31,44 @@ describe('Hash Table', () => {
     ]
   });
   describe('#hash()', () => {
-    it('should return ca hash value for a given string', () => {
+    it('should return a hash value for a given string', () => {
       const hashCode = hashTable.hash(sampleData[0].title);
-      console.log(hashCode);
+      assert(!isNaN(hashCode) && hashCode > 0);
     });
   });
   describe('#insert()', () => {
     it('should insert a value', () => {
       hashTable.insert(sampleData[0].title, sampleData[0].content);
-      console.log(hashTable);
+      // console.log(hashTable);
       // assert.equal(bst.getSize(), intArray.length);
     });
     it('should insert multiple values', () => {
-      hashTable.insert(sampleData[0].title, sampleData[0].content);
-      console.log(hashTable);
+      hashTable.insertArray(sampleData, 'title', 'content');
+      // console.log(hashTable);
       // assert.equal(bst.getSize(), intArray.length);
+    });
+  });
+  describe('#find()', () => {
+    it('should find an inserted value', () => {
+      hashTable.insertArray(sampleData, 'title', 'content');
+      assert.equal(hashTable.find(sampleData[2].title), sampleData[2].content);
+    });
+    it('should not find a non inserted value', () => {
+      hashTable.insertArray(sampleData, 'title', 'content');
+      assert.equal(hashTable.find('Non-existent value'), null);
+    });
+    it('should not find a value when table is empty', () => {
+      assert.equal(hashTable.find(sampleData[2].title), null);
+    });
+  });
+  describe('#delete()', () => {
+    it('should delete an inserted value', () => {
+      hashTable.insertArray(sampleData, 'title', 'content');
+      assert.equal(hashTable.delete(sampleData[2].title), true);
+    });
+    it('should not delete a non inserted value', () => {
+      hashTable.insertArray(sampleData, 'title', 'content');
+      assert.equal(hashTable.delete('Non-existent value'), false);
     });
   });
 });
