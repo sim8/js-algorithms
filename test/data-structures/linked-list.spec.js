@@ -18,7 +18,7 @@ describe('Linked List', () => {
     });
   });
   describe('#shift()', () => {
-    it('should remove values at the start of the list', () => {
+    it('should remove values from the start of the list', () => {
       for (const item of objectArray) {
         linkedList.unshift(item);
       }
@@ -28,16 +28,29 @@ describe('Linked List', () => {
       assert.equal(linkedList.getLength(), objectArray.length - 1);
     });
   });
-  // describe('#insert()', () => {
-  //   it('should insert a value', () => {
-  //     hashTable.insert(sampleData[0].title, sampleData[0].content);
-  //     // console.log(hashTable);
-  //     // assert.equal(bst.getSize(), intArray.length);
-  //   });
-  //   it('should insert multiple values', () => {
-  //     hashTable.insertArray(sampleData, 'title', 'content');
-  //     // console.log(hashTable);
-  //     // assert.equal(bst.getSize(), intArray.length);
-  //   });
-  // });
+  describe('#push()', () => {
+    it('should insert values at the end of the list', () => {
+      for (const item of objectArray) {
+        linkedList.push(item);
+      }
+      assert.equal(linkedList.first.value.lastName, 'Baxster');
+      assert.equal(linkedList.first.next.value.lastName, 'Swiffen');
+      assert.equal(linkedList.getLength(), objectArray.length);
+      assert.equal(linkedList.last.prev.value.lastName, 'Roadknight');
+    });
+  });
+  describe('#pop()', () => {
+    it('should remove values from the end of the list', () => {
+      for (const item of objectArray) {
+        linkedList.push(item);
+      }
+      const val = linkedList.pop();
+      assert.equal(val.lastName, 'Hasty');
+      assert.equal(linkedList.last.value.lastName, 'Roadknight');
+      linkedList.map(item => console.log('>', item.lastName));
+      assert.equal(linkedList.getLength(), objectArray.length - 1);
+
+    });
+  });
+
 });

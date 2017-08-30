@@ -13,7 +13,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test-react": "react-scripts test --env=jsdom",
-    "test": "mocha --require babel-polyfill --compilers js:babel-register 'test/**/*.spec.js'",
+    "test": "mocha --require babel-polyfill --compilers js:babel-register test/**/*.spec.js",
     "eject": "react-scripts eject"
   },
   "devDependencies": {

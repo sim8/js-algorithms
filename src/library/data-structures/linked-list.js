@@ -7,8 +7,7 @@ export class Node {
 }
 
 export class LinkedList {
-  constructor(isDoublyLinked) {
-    this.isDoublyLinked = isDoublyLinked;
+  constructor() {
     this.first = null;
     this.last = null;
   }
@@ -25,6 +24,7 @@ export class LinkedList {
       this.last = node;
     } else {
       node.next = this.first;
+      this.first.prev = node;
       this.first = node;
     }
   }
@@ -38,20 +38,52 @@ export class LinkedList {
       const node = this.first;
       this.first = null;
       this.last = null;
-      return node;
+      return node.value;
     }
     const node = this.first;
     this.first = this.first.next;
+    this.first.prev = null;
     return node.value;
   }
 
-  // push(value) {
-  //
-  // }
-  // pop() {
-  //
-  // }
+  /**
+   * Add to end of list
+   * @return {void}
+   * @param {any} value value to be added
+   */
+  push(value) {
+    const node = new Node(value);
+    if (this.first === null) {
+      this.first = node;
+      this.last = node;
+    } else {
+      node.prev = this.last;
+      this.last.next = node;
+      this.last = node;
+    }
+  }
 
+  /**
+   * Remove item from end of list
+   * @return {any} last item in list
+   */
+  pop() {
+    if (this.first === this.last) {
+      const node = this.last;
+      this.first = null;
+      this.last = null;
+      return node.value;
+    }
+    const node = this.last;
+    this.last = this.last.prev;
+    this.last.next = null;
+    return node.value;
+  }
+
+  /**
+   * Returns the length of the list
+   * @return {number} length of list
+   */
   getLength() {
     let length = 0;
     let node = this.first;
@@ -60,5 +92,18 @@ export class LinkedList {
       node = node.next;
     }
     return length;
+  }
+
+  /**
+   * Applies a callback function to each item in the list, starting with the first
+   * @return {void}
+   * @param {any} callback callback function to be applied
+   */
+  map(callback) {
+    let node = this.first;
+    while (node !== null) {
+      callback(node.value);
+      node = node.next;
+    }
   }
 }
