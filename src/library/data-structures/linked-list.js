@@ -106,4 +106,13 @@ export class LinkedList {
       node = node.next;
     }
   }
+
+  /**
+   * Clears the list
+   * @return {void}
+   */
+  clear() {
+    this.first = null;
+    this.last = null;
+  }
 }

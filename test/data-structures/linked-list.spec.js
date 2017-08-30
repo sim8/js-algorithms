@@ -47,9 +47,7 @@ describe('Linked List', () => {
       const val = linkedList.pop();
       assert.equal(val.lastName, 'Hasty');
       assert.equal(linkedList.last.value.lastName, 'Roadknight');
-      linkedList.map(item => console.log('>', item.lastName));
       assert.equal(linkedList.getLength(), objectArray.length - 1);
-
     });
   });
 
