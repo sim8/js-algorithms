@@ -1,18 +1,18 @@
 /*
 State of heap is represented using array. Items in tree:
-      1
+      0
     /  \
-   2    3
+   1    2
   /\    /\
- 4  5  6  7
+ 3  4  5  6
 
-Correspond to [1, 2, 3, 4 ...] where x / 2 rounded down is the index of the parent.
+Correspond to [0, 1, 2, 3...] where (x-1) / 2 rounded down is the index of the parent.
 
 */
 
 export class Heap {
   constructor(comparisonFunction) {
-    this._heap = [null];
+    this._heap = [];
     this._comparisonFunction = comparisonFunction;
   }
 
@@ -21,8 +21,18 @@ export class Heap {
     this._bubbleUp(this._heap.length - 1);
   }
 
+  extract() {
+    const val = this._heap.shift();
+    this._heapify();
+    return val;
+  }
+
+  _heapify() {
+
+  }
+
   _bubbleUp(index) {
-    const parentIndex = Math.floor(index / 2);
+    const parentIndex = Math.floor((index - 1) / 2);
     if (parentIndex > 0 && this._comparisonFunction(this._heap[index], this._heap[parentIndex])) {
       const temp = this._heap[index];
       this._heap[index] = this._heap[parentIndex]
