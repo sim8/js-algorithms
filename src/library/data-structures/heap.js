@@ -23,17 +23,39 @@ export class Heap {
 
   extract() {
     const val = this._heap.shift();
-    this._heapify();
+    this.heapify();
     return val;
   }
 
-  _heapify() {
+  heapify() {
+    let parentIndex = Math.floor((this._heap.length - 2) / 2);
+    console.log('par: ', parentIndex);
+    while (parentIndex >= 0) {
+      this._siftDown(parentIndex);
+      parentIndex--;
+    }
+  }
 
+  _siftDown(parentIndex) {
+
+    let extremumChild = parentIndex * 2 + 1; // left
+    if (this._heap.length > extremumChild + 2 &&
+        this._comparisonFunction(this._heap[extremumChild], this._heap[extremumChild + 1])) {
+      extremumChild++; // right
+    }
+    if (this._comparisonFunction(this._heap[extremumChild], this._heap[parentIndex])) {
+      let temp = this._heap[parentIndex];
+      this._heap[parentIndex] = this._heap[extremumChild];
+      this._heap[extremumChild] = temp;
+      if (this._heap.length >= extremumChild * 2) {
+        this._siftDown(extremumChild * 2 + 1);
+      }
+    }
   }
 
   _bubbleUp(index) {
     const parentIndex = Math.floor((index - 1) / 2);
-    if (parentIndex > 0 && this._comparisonFunction(this._heap[index], this._heap[parentIndex])) {
+    if (parentIndex >= 0 && this._comparisonFunction(this._heap[index], this._heap[parentIndex])) {
       const temp = this._heap[index];
       this._heap[index] = this._heap[parentIndex]
       this._heap[parentIndex] = temp;
