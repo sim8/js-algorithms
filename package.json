@@ -14,7 +14,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test-react": "react-scripts test --env=jsdom",
-    "test": "mocha --require babel-polyfill --compilers js:babel-register 'test/**/*.js'",
+    "test": "mocha --require babel-polyfill --compilers js:babel-register test/**/*.spec.js",
     "eject": "react-scripts eject"
   },
   "devDependencies": {
@@ -24,7 +24,8 @@
     "babel-register": "^6.24.1",
     "eslint": "^4.2.0",
     "eslint-config-hubspot": "^7.3.0",
-    "eslint-plugin-react": "^7.1.0"
+    "eslint-plugin-react": "^7.1.0",
+    "mocha": "^3.5.0"
   },
   "eslintConfig": {
     "extends": "hubspot"
