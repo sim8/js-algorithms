@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import * as lh from './../util/library-helpers'
 
 export default class Browse extends React.Component {
   constructor(props) {
@@ -12,7 +13,7 @@ export default class Browse extends React.Component {
       <div>Browse
         <ul>
           {this.props.library.map(item =>
-            <Link to={`/detail/${item.key}`} key={item.key}>
+            <Link to={`/detail/${lh.getURLName(item.name)}`} key={lh.getURLName(item.name)}>
               <li >
                 {item.name}
               </li>
