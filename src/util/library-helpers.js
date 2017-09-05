@@ -4,6 +4,9 @@ export function getClassName(name) {
 
 export function getInstanceName(name) {
   let className = getClassName(name);
+  if (className === className.toUpperCase()) {
+    return className.toLowerCase();
+  }
   return className.charAt(0).toLowerCase() + className.slice(1);
 }
 

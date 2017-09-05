@@ -23,5 +23,18 @@ export const libraryConfig = [
     name: 'Merge Sort',
     type: 'Algorithm',
     tags: ['Algorithm', 'Sorting']
+  },
+  {
+    name: 'DFS',
+    type: 'Algorithm',
+    tags: ['Algorithm', 'Searching'],
+    testArgs: [
+      [1, 2, 3, 4, 5],
+      [[0, 1, 0, 1, 0],
+       [0, 0, 0, 0, 1],
+       [0, 0, 0, 0, 0],
+       [0, 0, 1, 0, 1],
+       [1, 0, 0, 0, 0]]
+    ]
   }
 ];

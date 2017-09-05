@@ -12,14 +12,15 @@ export default class Detail extends React.Component {
   }
 
   initialiseAlgorithm() {
-    window[lh.getInstanceName(this.props.item.name)] = new library[lh.getClassName(this.props.item.name)]();
+    let item = this.props.item;
+    window[lh.getInstanceName(item.name)] = new library[lh.getClassName(item.name)](...item.testArgs || {});
     console.clear();
     console.log(`
-      +=${'='.repeat(this.props.item.name.length)}=+
-      | ${this.props.item.name.toUpperCase()} |
-      +=${'='.repeat(this.props.item.name.length)}=+
+      +=${'='.repeat(item.name.length)}=+
+      | ${item.name.toUpperCase()} |
+      +=${'='.repeat(item.name.length)}=+
     `);
-    console.log('A ' + this.props.item.name + ' has been initialised under %c' + lh.getInstanceName(this.props.item.name), "color: blue; font-style: italic;");
+    console.log('A ' + item.name + ' has been initialised under %c' + lh.getInstanceName(item.name), "color: blue; font-style: italic;");
   }
 
   render() {
