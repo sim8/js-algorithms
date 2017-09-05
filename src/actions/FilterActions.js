@@ -6,3 +6,10 @@ export function setSearchString(text) {
     text
   })
 }
+
+export function toggleTag(tagWord) {
+  dispatcher.dispatch({
+    type: 'TOGGLE_TAG',
+    tagWord
+  })
+}
