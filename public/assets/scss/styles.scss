@@ -1,5 +1,16 @@
-div#particle-canvas {
-  position: absolute;
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#particle-canvas {
+  position: absolute !important;
+  z-index: -1;
   top: 0;
+  width: 100%;
   height: 100%;
 }
