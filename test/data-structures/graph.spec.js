@@ -10,12 +10,11 @@ describe('Graph', () => {
                    [0, 0, 1, 0]];
   let graph;
   beforeEach(() => {
-    graph = new Graph();
+    graph = new Graph(smallArray, adjacency);
   });
-  // describe('#add()', () => {
-  //   it('should add items in the correct location', () => {
-  //     simpleArray.map(item => minHeap.add(item));
-  //     console.log(minHeap._heap.toString());
-  //   });
-  // });
+  describe('#constructor()', () => {
+    it('should correctly initialise the graph from the adjacency matrix', () => {
+      graph.print();
+    });
+  });
 });

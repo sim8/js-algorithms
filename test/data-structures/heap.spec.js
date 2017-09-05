@@ -15,14 +15,14 @@ describe('Heap', () => {
   describe('#add()', () => {
     it('should add items in the correct location', () => {
       simpleArray.map(item => minHeap.add(item));
-      console.log(minHeap._heap.toString());
+      // console.log(minHeap._heap.toString());
     });
   });
   describe('#heapify()', () => {
     it('should correctly heapify a random array', () => {
       minHeap._heap = simpleArray;
       minHeap.heapify();
-      console.log(minHeap._heap.toString());
+      // console.log(minHeap._heap.toString());
     });
   });
 });
