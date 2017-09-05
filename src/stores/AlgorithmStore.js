@@ -8,8 +8,8 @@ class AlgorithmStore extends EventEmitter {
     this.algorithms = libraryConfig;
     this.searchString = '';
     this.tags = [];
-    let tagWords = new Set([].concat.apply([], libraryConfig.map(a => a.tags)));
-    for (let tagWord of tagWords) {
+    const tagWords = new Set([].concat.apply([], libraryConfig.map(a => a.tags)));
+    for (const tagWord of tagWords) {
       this.tags.push({
         tagWord,
         isActive: false
@@ -26,13 +26,17 @@ class AlgorithmStore extends EventEmitter {
   }
 
   getFiltered() {
-    return this.algorithms.filter(a => {
+    let filtered = this.algorithms.filter(a => {
       return a.name.includes(this.searchString);
-    })
+    });
+    for (const tag of this.tags.filter(t => t.isActive)) {
+      filtered = filtered.filter(a => a.tags.includes(tag.tagWord));
+    }
+    return filtered;
   }
 
   toggleTag(tagWord) {
-    let tag = this.tags.find(t => t.tagWord === tagWord);
+    const tag = this.tags.find(t => t.tagWord === tagWord);
     tag.isActive = !tag.isActive;
     this.emit('change');
   }
@@ -48,7 +52,7 @@ class AlgorithmStore extends EventEmitter {
         this.setSearchString(action.text);
         break;
       case 'TOGGLE_TAG':
-        this.toggleTag(action.tag);
+        this.toggleTag(action.tagWord);
         break;
     }
   }
