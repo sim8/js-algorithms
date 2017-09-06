@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
+import { BrowserRouter as Router, NavLink, Route } from 'react-router-dom';
 import Layout from './containers/Layout';
 import Browse from './containers/Browse';
 import Detail from './containers/Detail';
@@ -15,9 +15,9 @@ class App extends Component {
     return (
       <Router>
         <Layout>
-          <nav>
-            <Link to={'/browse'}>Browse</Link>
-            <Link to={'/'}>About</Link>
+          <nav className="main-nav">
+            <NavLink activeClassName="active" to={'/browse'}>Browse</NavLink>
+            <NavLink activeClassName="active" to={'/about'}>About</NavLink>
           </nav>
           <Route path="/detail/:itemKey" render={({ match }) => (
             <Detail item={libraryConfig.find(i => lh.getURLName(i.name) === match.params.itemKey)} />
@@ -25,7 +25,7 @@ class App extends Component {
           <Route path="/browse" render={() => (
             <Browse library={libraryConfig} />
           )} />
-          <Route exact={true} path="/" component={About} />
+          <Route path="/about" component={About} />
         </Layout>
       </Router>
     );

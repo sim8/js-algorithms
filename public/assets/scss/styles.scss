@@ -1,3 +1,7 @@
+@import 'normalize.css';
+@import 'browse.scss';
+
+
 html,
 body {
   height: 100%;
@@ -5,6 +9,7 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
+  color: $primary-color;
 }
 
 #particle-canvas {
@@ -13,4 +18,51 @@ body {
   top: 0;
   width: 100%;
   height: 100%;
+}
+
+#root {
+  height: 100%;
+  padding: 2rem;
+  background: -webkit-linear-gradient(left, #ceccc4 , transparent); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, #ceccc4, transparent); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, #ceccc4, transparent); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, #ceccc4, transparent); /* Standard syntax */
+}
+
+h1 {
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
+
+h1.main-title span {
+  color: white;
+}
+
+nav.main-nav {
+  position: fixed;
+  padding: 2rem;
+  bottom: 0;
+  right: 0;
+  text-align: right;
+  font-weight: bold;
+  a {
+    text-decoration: none;
+    font-size: 2rem;
+    display: block;
+    color: $primary-color;
+    margin-top: 5px;
+    &.active {
+      color: white;
+    }
+  }
+}
+
+input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 4px solid $primary-color;
+  padding: 9px 0;
+  &:focus {
+    outline: none;
+  }
 }

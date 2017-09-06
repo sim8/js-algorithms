@@ -1,0 +1,47 @@
+@import 'variables.scss';
+
+ul.algorithm-selection {
+  list-style-type: none;
+  padding: 0;
+  li {
+    border: 4px solid $primary-color;
+    width: 130px;
+    height: 100px;
+    display: inline-block;
+    margin: 0 10px 10px 0;
+    vertical-align: top;
+    a {
+      display: block;
+      height: 80px;
+      padding: 10px;
+      text-align: center;
+      text-decoration: none;
+      color: $primary-color;
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+    div {
+      height: 100%;
+      display: flex;
+      justify-content:center;
+      align-content:center;
+      flex-direction:column;
+    }
+  }
+}
+
+div.tags {
+  display: inline-block;
+  span {
+    display: inline-block;
+    padding: 7px 14px;
+    border: 1px solid $primary-color;
+    border-radius: 20px;
+    margin-left: 7px;
+    cursor: pointer;
+    &.active {
+      background-color: white;
+      border-color: white;
+    }
+  }
+}

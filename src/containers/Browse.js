@@ -7,30 +7,42 @@ import * as lh from './../util/library-helpers'
 export default class Browse extends React.Component {
   constructor(props) {
     super(props);
+    this.getAlgorithms = this.getAlgorithms.bind(this);
     this.state = {
       algorithms: AlgorithmStore.getFiltered()
     };
   }
 
   componentWillMount() {
-    AlgorithmStore.on('change', () => {
-      this.setState({
-        algorithms: AlgorithmStore.getFiltered()
-      })
+    AlgorithmStore.on('change', this.getAlgorithms);
+  }
+
+  componentWillUnmount() {
+    AlgorithmStore.removeListener('change', this.getAlgorithms);
+  }
+
+  getAlgorithms() {
+    this.setState({
+      algorithms: AlgorithmStore.getFiltered()
     })
   }
 
   render() {
     return (
       <div>
+        <h1 className="main-title">JS Algorithms <span>/ Browse</span></h1>
         <Filters></Filters>
-        <ul>
+        <ul className="algorithm-selection">
           {this.state.algorithms.map(item =>
-            <Link to={`/detail/${lh.getURLName(item.name)}`} key={lh.getURLName(item.name)}>
-              <li >
-                {item.name}
-              </li>
-            </Link>
+            <li key={lh.getURLName(item.name)}>
+              <Link to={`/detail/${lh.getURLName(item.name)}`}>
+                <div>
+                  <p>
+                    {item.name}
+                  </p>
+                </div>
+              </Link>
+            </li>
           )}
         </ul>
       </div>

@@ -15,6 +15,7 @@ class AlgorithmStore extends EventEmitter {
         isActive: false
       });
     }
+    this.tags.sort((a, b) => a.tagWord > b.tagWord);
   }
 
   getAll() {
@@ -27,7 +28,7 @@ class AlgorithmStore extends EventEmitter {
 
   getFiltered() {
     let filtered = this.algorithms.filter(a => {
-      return a.name.includes(this.searchString);
+      return a.name.toUpperCase().includes(this.searchString.toUpperCase());
     });
     for (const tag of this.tags.filter(t => t.isActive)) {
       filtered = filtered.filter(a => a.tags.includes(tag.tagWord));
