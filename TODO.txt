@@ -1,0 +1,3 @@
+Remove type from config
+Rename config file to include 'config'
+Rewatch async vid and apply
