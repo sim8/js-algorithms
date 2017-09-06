@@ -1,14 +1,25 @@
 import React from 'react';
+import axios from 'axios';
 import * as library from './../library/library';
-import * as lh from './../util/library-helpers'
+import * as lh from './../util/library-helpers';
+import { appConfig } from './../config/app-config';
 
 export default class Detail extends React.Component {
   constructor(props) {
     super();
+    this.spinner = 'Loading...';
   }
 
   componentDidMount() {
     this.initialiseAlgorithm();
+    this.initialiseCode();
+  }
+
+  initialiseCode() {
+    axios.get(appConfig.filesBaseURL + this.props.item.path).then(response => {
+      this.code = response.data;
+      window.code = this.code;
+    });
   }
 
   initialiseAlgorithm() {
@@ -27,6 +38,11 @@ export default class Detail extends React.Component {
     return (
       <div>
         {this.props.item.name}
+        <pre>
+          <code>
+            {this.code ? this.code : this.spinner}
+          </code>
+        </pre>
       </div>
     );
   }
