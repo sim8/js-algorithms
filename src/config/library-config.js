@@ -36,5 +36,18 @@ export const libraryConfig = [
        [0, 0, 1, 0, 1],
        [1, 0, 0, 0, 0]]
     ]
+  },
+  {
+    name: 'BFS',
+    path: 'Algorithm',
+    tags: ['Algorithm', 'Searching'],
+    testArgs: [
+      [1, 2, 3, 4, 5],
+      [[0, 1, 0, 1, 0],
+       [0, 0, 0, 0, 1],
+       [0, 0, 0, 0, 0],
+       [0, 0, 1, 0, 1],
+       [1, 0, 0, 0, 0]]
+    ]
   }
 ];
