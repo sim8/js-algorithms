@@ -1,6 +1,6 @@
 import { EventEmitter } from 'events';
 import dispatcher from './../dispatcher';
-import { libraryConfig } from './../config/library';
+import { libraryConfig } from './../config/library-config';
 
 class AlgorithmStore extends EventEmitter {
   constructor() {
@@ -48,7 +48,7 @@ class AlgorithmStore extends EventEmitter {
   }
 
   handleActions(action) {
-    switch(action.type) {
+    switch (action.type) {
       case 'SET_SEARCHSTRING':
         this.setSearchString(action.text);
         break;
@@ -61,6 +61,5 @@ class AlgorithmStore extends EventEmitter {
 
 const algorithmStore = new AlgorithmStore();
 dispatcher.register(algorithmStore.handleActions.bind(algorithmStore));
-window.ttt = algorithmStore.tags;
 
 export default algorithmStore;
