@@ -12,7 +12,7 @@ export class MergeSort {
     const arr2 = this.sort(array.slice(middle, array.length));
     return this.merge(arr1, arr2);
   }
-  static merge(arr1, arr2) {
+  merge(arr1, arr2) {
     let index1 = 0;
     let index2 = 0;
     const temp = [];
