@@ -6,27 +6,27 @@ export const libraryConfig = [
   },
   {
     name: 'Hash Table',
-    path: 'Data structure',
+    path: 'data-structures/hash-table.js',
     tags: ['Data Structure']
   },
   {
     name: 'Binary Search Tree',
-    path: 'Data structure',
-    tags: ['Data Structure']
+    path: 'data-structures/binary-search-tree.js',
+    tags: ['Data Structure', 'Searching']
   },
   {
     name: 'Heap',
-    path: 'Data structure',
+    path: 'data-structures/heap.js',
     tags: ['Data Structure']
   },
   {
     name: 'Merge Sort',
-    path: 'Algorithm',
+    path: 'algorithms/sorting/merge-sort.js',
     tags: ['Algorithm', 'Sorting']
   },
   {
     name: 'DFS',
-    path: 'Algorithm',
+    path: 'algorithms/searching/dfs.js',
     tags: ['Algorithm', 'Searching'],
     testArgs: [
       [1, 2, 3, 4, 5],

@@ -1,25 +1,30 @@
 import React from 'react';
-import axios from 'axios';
 import * as library from './../library/library';
 import * as lh from './../util/library-helpers';
-import { appConfig } from './../config/app-config';
+import CodeStore from './../stores/CodeStore';
+import * as CodeActions from './../actions/CodeActions';
 
 export default class Detail extends React.Component {
   constructor(props) {
     super();
+    this.getCode = this.getCode.bind(this);
     this.spinner = 'Loading...';
   }
 
-  componentDidMount() {
+  componentWillMount() {
+    CodeStore.on('fetched', this.getCode);
+    CodeActions.fetchCode(this.props.item.path);
     this.initialiseAlgorithm();
-    this.initialiseCode();
   }
 
-  initialiseCode() {
-    axios.get(appConfig.filesBaseURL + this.props.item.path).then(response => {
-      this.code = response.data;
-      window.code = this.code;
-    });
+  componentWillUnmount() {
+    CodeStore.removeListener('fetched', this.getCode);
+  }
+
+  getCode() {
+    this.setState({
+      code: CodeStore.getCode(this.props.item.path)
+    })
   }
 
   initialiseAlgorithm() {
@@ -40,7 +45,7 @@ export default class Detail extends React.Component {
         <h1 className="main-title">JS Algorithms <span>/ {this.props.item.name}</span></h1>
         <pre>
           <code>
-            {this.code ? this.code : this.spinner}
+            {this.state && this.state.code ? this.state.code : this.spinner}
           </code>
         </pre>
       </div>

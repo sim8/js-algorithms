@@ -5,8 +5,8 @@ import Layout from './containers/Layout';
 import Browse from './containers/Browse';
 import Detail from './containers/Detail';
 import About from './containers/About';
-import { libraryConfig } from './config/library';
-import * as lh from './util/library-helpers'
+import { libraryConfig } from './config/library-config';
+import * as lh from './util/library-helpers';
 
 import './App.css';
 
