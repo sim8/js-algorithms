@@ -1,19 +1,19 @@
-import { MergeSort } from './../../../src/library/algorithms/sorting/merge-sort';
+import { QuickSort } from './../../../src/library/algorithms/sorting/quick-sort';
 
 const assert = require('assert');
 
-describe('Merge Sort', () => {
+describe('Quick Sort', () => {
   let array;
   let sortedArray;
-  let mergeSort = new MergeSort();
+  let quickSort = new QuickSort();
   beforeEach(() => {
     array = [3, 6, 66, 4, 12, 267, 43, 2, 7, 78, 85, 34, 12, 45];
     sortedArray = [2, 3, 4, 6, 7, 12, 12, 34, 43, 45, 66, 78, 85, 267];
   });
-  describe('mergeSort()', () => {
+  describe('quickSort()', () => {
     it('should correctly sort array', () => {
       // assert.equal(MergeSort.mergeSort([1, 3, 2, 5]), sortedArray);
-      assert.deepEqual(mergeSort.sort(array), sortedArray);
+      assert.deepEqual(quickSort.sort(array), sortedArray);
     });
   });
 });

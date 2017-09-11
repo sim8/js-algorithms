@@ -6,3 +6,4 @@ export * from './data-structures/linked-list';
 export * from './algorithms/searching/bfs';
 export * from './algorithms/searching/dfs';
 export * from './algorithms/sorting/merge-sort';
+export * from './algorithms/sorting/quick-sort';

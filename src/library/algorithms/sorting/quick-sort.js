@@ -4,38 +4,34 @@
  * @type {[type]}
  */
 export class QuickSort {
-  static quickSort(array, pivot = null) {
-    if (array.length <= 1) {
+
+  constructor() {
+    this.callStack = 0;
+  }
+
+  sort(array, callStack = 0) {
+    this.callStack += 1;
+
+    // Return if all values the same
+    if (array.every((el, i, arr) => el === arr[0])) {
       return array;
     }
 
-    const [lower, upper] = this.quickSort(array, Math.floor(Math.random() * array.length)
-    // const arr1 = this.quickSort(array.slice(0, pivot));
-    // const arr2 = this.quickSort(array.slice(pivot, array.length));
-    return this.merge(arr1, arr2);
-  }
-  static pivot(array, pivot) {
-    let index1 = 0;
-    let index2 = 0;
-    const temp = [];
-    while (index1 < arr1.length && index2 < arr2.length) {
-      if (arr1[index1] < arr2[index2]) {
-        temp.push(arr1[index1]);
-        index1++;
-      } else {
-        temp.push(arr2[index2]);
-        index2++;
-      }
+    const pivot = Math.floor(Math.random() * array.length);
+    let lower = array.filter(i => i <= array[pivot]);
+    let upper = array.filter(i => i > array[pivot]);
+
+    // console.log(lower.toString());
+    // console.log(upper.toString());
+
+    try {
+      lower = this.sort(lower);
+      upper = this.sort(upper);
+    } catch (e) {
+      console.log('Callstack: ', this.callStack);
     }
-    // Only arr1 or arr2 will have values at this point so order does not matter
-    while (index1 < arr1.length) {
-      temp.push(arr1[index1]);
-      index1++;
-    }
-    while (index2 < arr2.length) {
-      temp.push(arr2[index2]);
-      index2++;
-    }
-    return temp;
+    return lower.concat(upper);
+    // return this.quickSort(lower).concat(this.quickSort(upper));
+
   }
 }

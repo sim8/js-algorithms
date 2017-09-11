@@ -25,6 +25,11 @@ export const libraryConfig = [
     tags: ['Algorithm', 'Sorting']
   },
   {
+    name: 'Quick Sort',
+    path: 'algorithms/sorting/quick-sort.js',
+    tags: ['Algorithm', 'Sorting']
+  },
+  {
     name: 'DFS',
     path: 'algorithms/searching/dfs.js',
     tags: ['Algorithm', 'Searching'],
