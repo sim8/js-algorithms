@@ -12,12 +12,17 @@ export const libraryConfig = [
   {
     name: 'Binary Search Tree',
     path: 'data-structures/binary-search-tree.js',
-    tags: ['Data Structure', 'Searching', 'Recursion']
+    tags: ['Data Structure', 'Searching', 'Recursion', 'Tree']
+  },
+  {
+    name: 'Trie',
+    path: 'data-structures/trie.js',
+    tags: ['Data Structure', 'Searching', 'Recursion', 'Tree']
   },
   {
     name: 'Heap',
     path: 'data-structures/heap.js',
-    tags: ['Data Structure', 'Recursion']
+    tags: ['Data Structure', 'Recursion', 'Tree']
   },
   {
     name: 'Merge Sort',
