@@ -18,10 +18,10 @@ describe('Trie', () => {
       });
     });
   });
-  describe('#findStrings()', () => {
+  describe('#getStrings()', () => {
     it('should find inserted strings that match a given prefix', () => {
-      assert.deepEqual(trie.findStrings('Ap'), ['Apple', 'Apricot']);
-      assert.deepEqual(trie.findStrings('Banana'), ['Banana']);
+      assert.deepEqual(trie.getStrings('Ap'), ['Apple', 'Apricot']);
+      assert.deepEqual(trie.getStrings('Banana'), ['Banana']);
     });
     it('should find all inserted strings when no prefix is provided', () => {
 
@@ -30,13 +30,13 @@ describe('Trie', () => {
       ['App', 'Arg'].forEach(str => {
         trie.addString(str);
       });
-      assert.deepEqual(trie.findStrings(), ['App', 'Arg']);
+      assert.deepEqual(trie.getStrings(), ['App', 'Arg']);
 
-      // assert.deepEqual(trie.findStrings(), ['Apple', 'Orange', 'Avocado', 'Apricot', 'Banana']);
+      // assert.deepEqual(trie.getStrings(), ['Apple', 'Orange', 'Avocado', 'Apricot', 'Banana']);
     });
     it('should not find any words that do not match a given prefix', () => {
-      assert.deepEqual(trie.findStrings('Mango'), []);
-      assert.deepEqual(trie.findStrings('Aardvark'), []);
+      assert.deepEqual(trie.getStrings('Mango'), []);
+      assert.deepEqual(trie.getStrings('Aardvark'), []);
     });
   });
 });

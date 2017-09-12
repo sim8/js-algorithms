@@ -15,6 +15,9 @@ export class Trie {
     this.root = new Node(null, false);
   }
 
+  /**
+   * Adds string to the trie unless duplicate.
+   */
   addString(str, current = this.root) {
     if (!str) {
       return;
@@ -29,7 +32,10 @@ export class Trie {
     }
   }
 
-  findStrings(str, current = this.root) {
+  /**
+   * Returns array of strings with prefix matching supplied string
+   */
+  getStrings(str, current = this.root) {
     let strings = [];
     let match;
     let childStrings;
@@ -40,12 +46,12 @@ export class Trie {
 
     if (str) {
       if (match = current.children.find(n => n.value.toUpperCase() === str[0].toUpperCase())) {
-        childStrings = this.findStrings(str.substr(1), match);
+        childStrings = this.getStrings(str.substr(1), match);
       } else {
         return [];
       }
     } else {
-      childStrings = current.children.map(child => this.findStrings(null, child));
+      childStrings = current.children.map(child => this.getStrings(null, child));
     }
 
     let allStrings = childStrings.map(child => {
@@ -53,7 +59,8 @@ export class Trie {
     });
 
     strings = strings.concat(allStrings);
-
+    console.log(strings)
+    // Just trying to prepend current value to all child strings and return (simple right?)
     // strings = strings.concat(childStrings.map(s => (current.value || '') + s));
     return strings;
   }
