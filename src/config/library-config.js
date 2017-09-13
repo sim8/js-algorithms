@@ -49,7 +49,7 @@ export const libraryConfig = [
   },
   {
     name: 'BFS',
-    path: 'Algorithm',
+    path: 'algorithms/searching/bfs.js',
     tags: ['Algorithm', 'Searching', 'Recursion'],
     testArgs: [
       [1, 2, 3, 4, 5],
@@ -59,5 +59,10 @@ export const libraryConfig = [
        [0, 0, 1, 0, 1],
        [1, 0, 0, 0, 0]]
     ]
+  },
+  {
+    name: 'Tree Traversal',
+    path: 'algorithms/traversal/tree-traversal.js',
+    tags: ['Algorithm', 'Traversal', 'Recursion', 'Tree']
   }
 ];
