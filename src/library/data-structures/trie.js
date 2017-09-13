@@ -36,32 +36,28 @@ export class Trie {
    * Returns array of strings with prefix matching supplied string
    */
   getStrings(str, current = this.root) {
-    let strings = [];
     let match;
-    let childStrings;
+    let strings;
+
+    if (str) {
+      if (match = current.children.find(n => n.value.toUpperCase() === str[0].toUpperCase())) {
+        strings = this.getStrings(str.substr(1), match);
+      } else {
+        return [];
+      }
+    } else {
+      let stringArrays = current.children.map(child => this.getStrings(null, child));
+      strings = [].concat.apply([], stringArrays);
+    }
+
+    if (current !== this.root) {
+      strings = strings.map(string => current.value + string);
+    }
 
     if (current.isLastLetter) {
       strings.push(current.value);
     }
 
-    if (str) {
-      if (match = current.children.find(n => n.value.toUpperCase() === str[0].toUpperCase())) {
-        childStrings = this.getStrings(str.substr(1), match);
-      } else {
-        return [];
-      }
-    } else {
-      childStrings = current.children.map(child => this.getStrings(null, child));
-    }
-
-    let allStrings = childStrings.map(child => {
-      return current.value ? current.value + child : child;
-    });
-
-    strings = strings.concat(allStrings);
-    console.log(strings)
-    // Just trying to prepend current value to all child strings and return (simple right?)
-    // strings = strings.concat(childStrings.map(s => (current.value || '') + s));
     return strings;
   }
 }

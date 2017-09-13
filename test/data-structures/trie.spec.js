@@ -7,7 +7,8 @@ describe('Trie', () => {
   let strings;
   beforeEach(() => {
     trie = new Trie();
-    ['Apple', 'Application', 'Orange', 'Avocado', 'Apricot', 'Banana'].forEach(str => {
+    strings = ['Apple', 'Orange', 'Avocado', 'Apricot', 'Banana'];
+    strings.forEach(str => {
       trie.addString(str);
     });
   });
@@ -24,15 +25,7 @@ describe('Trie', () => {
       assert.deepEqual(trie.getStrings('Banana'), ['Banana']);
     });
     it('should find all inserted strings when no prefix is provided', () => {
-
-      //REMOVE
-      trie = new Trie();
-      ['App', 'Arg'].forEach(str => {
-        trie.addString(str);
-      });
-      assert.deepEqual(trie.getStrings(), ['App', 'Arg']);
-
-      // assert.deepEqual(trie.getStrings(), ['Apple', 'Orange', 'Avocado', 'Apricot', 'Banana']);
+      assert.deepEqual(trie.getStrings().sort(), strings.sort());
     });
     it('should not find any words that do not match a given prefix', () => {
       assert.deepEqual(trie.getStrings('Mango'), []);
