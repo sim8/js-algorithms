@@ -30,6 +30,11 @@ export const libraryConfig = [
     tags: ['Algorithm', 'Sorting', 'Recursion']
   },
   {
+    name: 'Insertion Sort',
+    path: 'algorithms/sorting/insertion-sort.js',
+    tags: ['Algorithm', 'Sorting']
+  },
+  {
     name: 'Quick Sort',
     path: 'algorithms/sorting/quick-sort.js',
     tags: ['Algorithm', 'Sorting', 'Recursion']
