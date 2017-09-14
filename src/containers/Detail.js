@@ -1,4 +1,5 @@
 import React from 'react';
+import InlineConsole from 'inline-console';
 import * as library from './../library/library';
 import * as lh from './../util/library-helpers';
 import CodeStore from './../stores/CodeStore';
@@ -14,6 +15,10 @@ export default class Detail extends React.Component {
   componentWillMount() {
     CodeStore.on('fetched', this.getCode);
     CodeActions.fetchCode(this.props.item.path);
+    // this.initialiseAlgorithm();
+  }
+
+  componentDidMount() {
     this.initialiseAlgorithm();
   }
 
@@ -43,6 +48,9 @@ export default class Detail extends React.Component {
     return (
       <div>
         <h1 className="main-title">JS Algorithms <span>/ {this.props.item.name}</span></h1>
+        <div className="inline-console">
+          <InlineConsole redirect={true}/>
+        </div>
         <pre>
           <code>
             {this.state && this.state.code ? this.state.code : this.spinner}
