@@ -95,6 +95,29 @@ export class LinkedList {
   }
 
   /**
+   * Checks if the linked list has a cycle
+   * @return {boolean} has cycle
+   */
+  hasCycle() {
+    let fast = this.first;
+    let slow = this.first;
+    while (true) {
+      if (fast === null) {
+        return false;
+      }
+      fast = fast.next;
+      if (fast === null) {
+        return false;
+      }
+      fast = fast.next;
+      slow = slow.next;
+      if (fast === slow) {
+        return true;
+      }
+    }
+  };
+
+  /**
    * Applies a callback function to each item in the list, starting with the first
    * @return {void}
    * @param {any} callback callback function to be applied
