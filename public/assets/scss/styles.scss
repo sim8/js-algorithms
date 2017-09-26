@@ -1,5 +1,7 @@
 @import 'normalize.css';
-@import 'browse.scss';
+@import 'variables';
+@import 'browse';
+@import 'detail';
 
 
 html,
@@ -38,23 +40,32 @@ h1.main-title span {
   color: white;
 }
 
+nav a {
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 2rem;
+
+  color: $primary-color;
+  margin-top: 5px;
+  &.active {
+    color: white;
+  }
+}
+
 nav.main-nav {
   position: fixed;
   padding: 2rem;
   bottom: 0;
   right: 0;
   text-align: right;
-  font-weight: bold;
   a {
-    text-decoration: none;
-    font-size: 2rem;
     display: block;
-    color: $primary-color;
-    margin-top: 5px;
-    &.active {
-      color: white;
-    }
   }
+}
+
+nav.secondary-nav a {
+  display: inline-block;
+  margin: 0 13px 25px 0;
 }
 
 input {

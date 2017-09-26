@@ -35,7 +35,7 @@ export default class Browse extends React.Component {
         <ul className="algorithm-selection">
           {this.state.algorithms.map(item =>
             <li key={lh.getURLName(item.name)}>
-              <Link to={`/detail/${lh.getURLName(item.name)}`}>
+              <Link to={`/detail/${lh.getURLName(item.name)}/terminal`}>
                 <div>
                   <p>
                     {item.name}
