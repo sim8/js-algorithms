@@ -20,7 +20,7 @@ class App extends Component {
             <NavLink activeClassName="active" to={'/about'}>About</NavLink>
           </nav>
           <Route path="/detail/:itemKey/" render={({ match }) => (
-            <Detail path={match.url} item={libraryConfig.find(i => lh.getURLName(i.name) === match.params.itemKey)} />
+            <Detail path={match.url} algorithm={libraryConfig.find(i => lh.getURLName(i.name) === match.params.itemKey)} />
           )} />
           <Route path="/browse" render={() => (
             <Browse library={libraryConfig} />

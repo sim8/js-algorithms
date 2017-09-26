@@ -28,23 +28,28 @@ export default class Browse extends React.Component {
   }
 
   render() {
+    const algorithms = this.state.algorithms.length > 0 ?
+      (<ul className="algorithm-selection">
+        {this.state.algorithms.map(item =>
+          <li key={lh.getURLName(item.name)}>
+            <Link to={`/detail/${lh.getURLName(item.name)}/terminal`}>
+              <div>
+                <p>
+                  {item.name}
+                </p>
+              </div>
+            </Link>
+          </li>
+        )}
+      </ul>)
+      :
+      <p>No algorithms found.</p>
+    ;
     return (
       <div>
         <h1 className="main-title">JS Algorithms <span>/ Browse</span></h1>
         <Filters></Filters>
-        <ul className="algorithm-selection">
-          {this.state.algorithms.map(item =>
-            <li key={lh.getURLName(item.name)}>
-              <Link to={`/detail/${lh.getURLName(item.name)}/terminal`}>
-                <div>
-                  <p>
-                    {item.name}
-                  </p>
-                </div>
-              </Link>
-            </li>
-          )}
-        </ul>
+        {algorithms}
       </div>
     );
   }
