@@ -6,6 +6,7 @@ export * from './data-structures/linked-list';
 export * from './data-structures/trie';
 export * from './algorithms/searching/bfs';
 export * from './algorithms/searching/dfs';
+export * from './algorithms/searching/largest-contiguous-subarray';
 export * from './algorithms/sorting/merge-sort';
 export * from './algorithms/sorting/quick-sort';
 export * from './algorithms/sorting/insertion-sort';

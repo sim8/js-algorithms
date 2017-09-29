@@ -66,6 +66,11 @@ export const libraryConfig = [
     ]
   },
   {
+    name: 'Largest Contiguous Subarray',
+    path: 'algorithms/searching/largest-contiguous-subarray.js',
+    tags: ['Array', 'Searching']
+  },
+  {
     name: 'Tree Traversal',
     path: 'algorithms/traversal/tree-traversal.js',
     tags: ['Algorithm', 'Traversal', 'Recursion', 'Tree']
