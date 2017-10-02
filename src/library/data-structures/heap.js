@@ -29,7 +29,6 @@ export class Heap {
 
   heapify() {
     let parentIndex = Math.floor((this._heap.length - 2) / 2);
-    console.log('par: ', parentIndex);
     while (parentIndex >= 0) {
       this._siftDown(parentIndex);
       parentIndex--;
