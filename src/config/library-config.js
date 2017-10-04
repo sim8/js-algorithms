@@ -40,6 +40,11 @@ export const libraryConfig = [
     tags: ['Algorithm', 'Sorting', 'Recursion']
   },
   {
+    name: 'Bucket Sort',
+    path: 'algorithms/sorting/bucket-sort.js',
+    tags: ['Algorithm', 'Sorting']
+  },
+  {
     name: 'DFS',
     path: 'algorithms/searching/dfs.js',
     tags: ['Algorithm', 'Searching', 'Recursion'],
