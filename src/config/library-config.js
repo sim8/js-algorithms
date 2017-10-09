@@ -25,6 +25,19 @@ export const libraryConfig = [
     tags: ['Data Structure', 'Recursion', 'Tree']
   },
   {
+    name: 'Graph',
+    path: 'data-structures/graph.js',
+    tags: ['Data Structure'],
+    testArgs: [
+      [1, 2, 3, 4, 5],
+      [[0, 1, 0, 1, 0],
+       [0, 0, 0, 0, 1],
+       [0, 0, 0, 0, 0],
+       [0, 0, 1, 0, 1],
+       [1, 0, 0, 0, 0]]
+    ]
+  },
+  {
     name: 'Merge Sort',
     path: 'algorithms/sorting/merge-sort.js',
     tags: ['Algorithm', 'Sorting', 'Recursion']
