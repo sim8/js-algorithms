@@ -27,6 +27,7 @@ export class LinkedList {
       this.first.prev = node;
       this.first = node;
     }
+    return this;
   }
 
   /**
@@ -61,6 +62,7 @@ export class LinkedList {
       this.last.next = node;
       this.last = node;
     }
+    return this;
   }
 
   /**
@@ -118,6 +120,25 @@ export class LinkedList {
   };
 
   /**
+   * Iteratively reverses linked list
+   */
+  reverse() {
+    let node = this.first;
+    let next;
+    this.last = node;
+    while (node.next) {
+      next = node.next;
+      node.next = node.prev;
+      node.prev = next;
+      node = next;
+    }
+    node.next = node.prev;
+    node.prev = null;
+    this.first = node;
+    return this;
+  }
+
+  /**
    * Applies a callback function to each item in the list, starting with the first
    * @return {void}
    * @param {any} callback callback function to be applied
@@ -128,6 +149,7 @@ export class LinkedList {
       callback(node.value);
       node = node.next;
     }
+    return this;
   }
 
   /**
@@ -137,5 +159,6 @@ export class LinkedList {
   clear() {
     this.first = null;
     this.last = null;
+    return this;
   }
 }

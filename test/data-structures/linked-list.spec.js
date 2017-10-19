@@ -50,5 +50,20 @@ describe('Linked List', () => {
       assert.equal(linkedList.getLength(), objectArray.length - 1);
     });
   });
+  describe('#reverse()', () => {
+    it('should correctly reverse the linked list', () => {
+      for (const item of objectArray) {
+        linkedList.push(item);
+      }
+      linkedList.reverse();
+      assert.equal(linkedList.first.value.lastName, 'Hasty');
+      assert.equal(linkedList.first.prev, null);
+      assert.equal(linkedList.first.next.value.lastName, 'Roadknight');
+
+      assert.equal(linkedList.last.value.lastName, 'Baxster');
+      assert.equal(linkedList.last.prev.value.lastName, 'Swiffen');
+      assert.equal(linkedList.last.next, null);
+    });
+  });
 
 });
