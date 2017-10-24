@@ -5,6 +5,11 @@ export const libraryConfig = [
     tags: ['Data Structure']
   },
   {
+    name: 'Stack',
+    path: 'data-structures/stack.js',
+    tags: ['Data Structure']
+  },
+  {
     name: 'Hash Table',
     path: 'data-structures/hash-table.js',
     tags: ['Data Structure']
