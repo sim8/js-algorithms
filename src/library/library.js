@@ -4,6 +4,7 @@ export * from './data-structures/hash-table';
 export * from './data-structures/heap';
 export * from './data-structures/linked-list';
 export * from './data-structures/stack';
+export * from './data-structures/queue';
 export * from './data-structures/trie';
 export * from './algorithms/searching/bfs';
 export * from './algorithms/searching/dfs';

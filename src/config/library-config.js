@@ -10,6 +10,11 @@ export const libraryConfig = [
     tags: ['Data Structure']
   },
   {
+    name: 'Queue',
+    path: 'data-structures/queue.js',
+    tags: ['Data Structure']
+  },
+  {
     name: 'Hash Table',
     path: 'data-structures/hash-table.js',
     tags: ['Data Structure']
