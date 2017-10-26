@@ -94,6 +94,11 @@ export const libraryConfig = [
     ]
   },
   {
+    name: 'Binary Search',
+    path: 'algorithms/searching/binary-search.js',
+    tags: ['Array', 'Searching']
+  },
+  {
     name: 'Largest Contiguous Subarray',
     path: 'algorithms/searching/largest-contiguous-subarray.js',
     tags: ['Array', 'Searching']
