@@ -11,7 +11,7 @@ describe('DFS', () => {
                    [1, 0, 0, 0, 0]];
   let dfs;
   beforeEach(() => {
-    dfs = new DFS(smallArray, adjacency);
+    dfs = new DFS(smallArray, adjacency, false);
   });
   describe('#depthFirstSearch()', () => {
     it('should search the graph in the correct order', () => {

@@ -14,4 +14,5 @@ export * from './algorithms/sorting/merge-sort';
 export * from './algorithms/sorting/quick-sort';
 export * from './algorithms/sorting/insertion-sort';
 export * from './algorithms/sorting/bucket-sort';
+export * from './algorithms/shortest-path/dijkstra';
 export * from './algorithms/traversal/tree-traversal';

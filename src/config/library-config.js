@@ -77,7 +77,8 @@ export const libraryConfig = [
        [0, 0, 0, 0, 1],
        [0, 0, 0, 0, 0],
        [0, 0, 1, 0, 1],
-       [1, 0, 0, 0, 0]]
+       [1, 0, 0, 0, 0]],
+      false
     ]
   },
   {
@@ -90,7 +91,22 @@ export const libraryConfig = [
        [0, 0, 0, 0, 1],
        [0, 0, 0, 0, 0],
        [0, 0, 1, 0, 1],
-       [1, 0, 0, 0, 0]]
+       [1, 0, 0, 0, 0]],
+      false
+    ]
+  },
+  {
+    name: 'Binary Search',
+    path: 'algorithms/searching/binary-search.js',
+    tags: ['Array', 'Searching'],
+    testArgs: [
+      [1, 2, 3, 4, 5],
+      [[0, 1, 0, 1, 0],
+       [0, 0, 0, 0, 1],
+       [0, 0, 0, 0, 0],
+       [0, 0, 1, 0, 1],
+       [1, 0, 0, 0, 0]],
+      true
     ]
   },
   {

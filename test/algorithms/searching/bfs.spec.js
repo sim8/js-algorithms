@@ -11,7 +11,7 @@ describe('BFS', () => {
                    [1, 0, 0, 0, 0]];
   let bfs;
   beforeEach(() => {
-    bfs = new BFS(smallArray, adjacency);
+    bfs = new BFS(smallArray, adjacency, false);
   });
   describe('#breadthFirstSearch()', () => {
     it('should search the graph in the correct order', () => {
