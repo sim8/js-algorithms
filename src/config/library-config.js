@@ -96,16 +96,16 @@ export const libraryConfig = [
     ]
   },
   {
-    name: 'Binary Search',
-    path: 'algorithms/searching/binary-search.js',
-    tags: ['Array', 'Searching'],
+    name: 'Dijkstra',
+    path: 'algorithms/shortest-path/dijkstra.js',
+    tags: ['Array', 'Shortest Path'],
     testArgs: [
       [1, 2, 3, 4, 5],
-      [[0, 1, 0, 1, 0],
-       [0, 0, 0, 0, 1],
-       [0, 0, 0, 0, 0],
-       [0, 0, 1, 0, 1],
-       [1, 0, 0, 0, 0]],
+      [[Infinity, 2, Infinity, 3, Infinity],
+       [Infinity, Infinity, Infinity, Infinity, 6],
+       [Infinity, Infinity, Infinity, Infinity, Infinity],
+       [Infinity, Infinity, 4, Infinity, 2],
+       [1, Infinity, Infinity, Infinity, Infinity]],
       true
     ]
   },

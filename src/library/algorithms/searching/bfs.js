@@ -15,11 +15,6 @@ export class BFS extends Graph {
         queue.push(connection);
       }
     }
-    // let val = this.breadthFirstSearch(callback, queue.shift(), visited, queue);
-    // if (val) {
-    //   return val;
-    // }
-    // return null;
 
     return queue.length > 0 ? this.breadthFirstSearch(callback, queue.shift(), visited, queue) : null;
   }

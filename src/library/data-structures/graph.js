@@ -7,7 +7,12 @@ export class Graph {
         connections: []
       }
       for (let j = 0; j < adjacencyMatrix[i].length; j++) {
-        if (isWeighted ? adjacencyMatrix[i][j] !== Infinity : adjacencyMatrix[i][j] === 1) {
+        if (isWeighted && adjacencyMatrix[i][j] !== Infinity) {
+          this._graph[i].connections.push({
+            node: j,
+            weight: adjacencyMatrix[i][j]
+          });
+        } else if (!isWeighted && adjacencyMatrix[i][j] === 1) {
           this._graph[i].connections.push(j);
         }
       }
