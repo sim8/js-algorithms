@@ -33,6 +33,8 @@ class CodeStore extends EventEmitter {
       case 'FETCH_CODE':
         this.fetchCode(action.path);
         break;
+      default:
+        break;
     }
   }
 }

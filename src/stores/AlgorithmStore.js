@@ -55,6 +55,8 @@ class AlgorithmStore extends EventEmitter {
       case 'TOGGLE_TAG':
         this.toggleTag(action.tagWord);
         break;
+      default:
+        break;
     }
   }
 }

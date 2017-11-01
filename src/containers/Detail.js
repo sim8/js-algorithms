@@ -2,7 +2,7 @@ import React from 'react';
 import CodeStore from './../stores/CodeStore';
 import TerminalWrapper from './../components/TerminalWrapper';
 import * as CodeActions from './../actions/CodeActions';
-import { BrowserRouter as Router, NavLink, Route } from 'react-router-dom';
+import { NavLink, Route } from 'react-router-dom';
 
 export default class Detail extends React.Component {
   constructor(props) {

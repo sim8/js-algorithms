@@ -6,7 +6,7 @@ class Node {
   }
 
   find(key) {
-    return key === this.key ? this.value : this.next && this.next.find(key) || null;
+    return key === this.key ? this.value : (this.next && this.next.find(key)) || null;
   }
 
   append(node) {

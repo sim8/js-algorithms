@@ -20,7 +20,7 @@ export class Graph {
   }
 
   print() {
-    this._graph.map(node => {
+    this._graph.forEach(node => {
       console.log(node.value, node.connections.toString());
     })
   }

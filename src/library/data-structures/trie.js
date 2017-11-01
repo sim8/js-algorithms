@@ -40,7 +40,8 @@ export class Trie {
     let strings;
 
     if (str) {
-      if (match = current.children.find(n => n.value.toUpperCase() === str[0].toUpperCase())) {
+      match = current.children.find(n => n.value.toUpperCase() === str[0].toUpperCase())
+      if (match) {
         strings = this.getStrings(str.substr(1), match);
       } else {
         return [];

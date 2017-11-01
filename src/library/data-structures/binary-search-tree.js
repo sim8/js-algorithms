@@ -12,8 +12,8 @@ class Node {
    */
   getTreeSize() {
     let size = 1;
-    size += this._left && this._left.getTreeSize() || 0;
-    size += this._right && this._right.getTreeSize() || 0;
+    size += (this._left && this._left.getTreeSize()) || 0;
+    size += (this._right && this._right.getTreeSize()) || 0;
     return size;
   }
 }
