@@ -95,20 +95,20 @@ export const libraryConfig = [
       false
     ]
   },
-  {
-    name: 'Dijkstra',
-    path: 'algorithms/shortest-path/dijkstra.js',
-    tags: ['Array', 'Shortest Path'],
-    testArgs: [
-      [1, 2, 3, 4, 5],
-      [[Infinity, 2, Infinity, 3, Infinity],
-       [Infinity, Infinity, Infinity, Infinity, 6],
-       [Infinity, Infinity, Infinity, Infinity, Infinity],
-       [Infinity, Infinity, 4, Infinity, 2],
-       [1, Infinity, Infinity, Infinity, Infinity]],
-      true
-    ]
-  },
+  // {
+  //   name: 'Dijkstra',
+  //   path: 'algorithms/shortest-path/dijkstra.js',
+  //   tags: ['Array', 'Shortest Path'],
+  //   testArgs: [
+  //     [1, 2, 3, 4, 5],
+  //     [[Infinity, 2, Infinity, 3, Infinity],
+  //      [Infinity, Infinity, Infinity, Infinity, 6],
+  //      [Infinity, Infinity, Infinity, Infinity, Infinity],
+  //      [Infinity, Infinity, 4, Infinity, 2],
+  //      [1, Infinity, Infinity, Infinity, Infinity]],
+  //     true
+  //   ]
+  // },
   {
     name: 'Binary Search',
     path: 'algorithms/searching/binary-search.js',

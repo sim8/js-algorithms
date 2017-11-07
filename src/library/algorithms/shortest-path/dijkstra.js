@@ -32,5 +32,6 @@ export class Dijkstra extends Graph {
     } else {
       let index = this._graph.indexOf(next);
       this.shortestPath(index, to, this._graph[index].distance);
+    }
   }
 }
