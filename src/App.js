@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-// import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, NavLink, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Redirect, NavLink, Route } from 'react-router-dom';
 import Layout from './containers/Layout';
 import Browse from './containers/Browse';
 import Detail from './containers/Detail';
@@ -13,16 +12,16 @@ import './App.css';
 class App extends Component {
   render() {
     return (
-      <Router>
+      <Router basename="js-algorithms">
         <Layout>
           <nav className="main-nav">
-            <NavLink activeClassName="active" to={'/browse'}>Browse</NavLink>
+            <NavLink activeClassName="active" exact to={'/'}>Browse</NavLink>
             <NavLink activeClassName="active" to={'/about'}>About</NavLink>
           </nav>
           <Route path="/detail/:itemKey/" render={({ match }) => (
             <Detail path={match.url} algorithm={libraryConfig.find(i => lh.getURLName(i.name) === match.params.itemKey)} />
           )} />
-          <Route path="/browse" render={() => (
+          <Route exact path="/" render={() => (
             <Browse library={libraryConfig} />
           )} />
           <Route path="/about" component={About} />
